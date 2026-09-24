@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafay Lab — Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small">
+                <svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active" data-page="home">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="bots.html" class="nav-item" data-page="bots">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                <span>Bots</span>
+            </a>
+            <a href="cheats.html" class="nav-item" data-page="cheats">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+                <span>Cheats</span>
+            </a>
+            <a href="apk.html" class="nav-item" data-page="apk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <span>APK Builder</span>
+            </a>
+            <a href="web.html" class="nav-item" data-page="web">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+                <span>Website</span>
+            </a>
+            <a href="ai.html" class="nav-item" data-page="ai">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="5"/></svg>
+                <span>AI Tools</span>
+            </a>
+            <a href="terminal.html" class="nav-item" data-page="terminal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                <span>Terminal</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">R</div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">User</span>
+                    <span class="user-role" id="userRole">owner</span>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn" title="Logout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </button>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content">
+        <button class="menu-toggle" id="menuToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1 id="pageTitle">Welcome back</h1>
+                <p id="pageSubtitle">What will you build today?</p>
+            </div>
+            <div class="topbar-right">
+                <span class="status-badge">
+                    <span class="status-dot"></span>
+                    System Online
+                </span>
+            </div>
+        </header>
+
+        <section class="content-area" id="contentArea">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="--c: #3b82f6;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Projects</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="--c: #10b981;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Builds</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="--c: #8b5cf6;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Cheats</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="--c: #f59e0b;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Active</span>
+                        <span class="stat-value">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Quick Access</h2>
+            <div class="tools-grid">
+                <a href="bots.html" class="tool-card" data-tool="bots">
+                    <div class="tool-icon" style="--c: #3b82f6;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                    </div>
+                    <h3>Bot Builder</h3>
+                    <p>Telegram, WhatsApp, automation</p>
+                </a>
+                <a href="cheats.html" class="tool-card" data-tool="cheats">
+                    <div class="tool-icon" style="--c: #ef4444;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>Cheats Lab</h3>
+                    <p>PUBG, Free Fire, mods</p>
+                </a>
+                <a href="apk.html" class="tool-card" data-tool="apk">
+                    <div class="tool-icon" style="--c: #8b5cf6;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    </div>
+                    <h3>APK Builder</h3>
+                    <p>Build apps in minutes</p>
+                </a>
+                <a href="web.html" class="tool-card" data-tool="web">
+                    <div class="tool-icon" style="--c: #10b981;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h3>Website Builder</h3>
+                    <p>Drag, drop, publish</p>
+                </a>
+                <a href="ai.html" class="tool-card" data-tool="ai">
+                    <div class="tool-icon" style="--c: #f59e0b;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="5"/></svg>
+                    </div>
+                    <h3>AI Tools</h3>
+                    <p>Gemini, ChatGPT, automation</p>
+                </a>
+                <a href="terminal.html" class="tool-card" data-tool="terminal">
+                    <div class="tool-icon" style="--c: #64748b;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                    </div>
+                    <h3>Terminal</h3>
+                    <p>Run commands directly</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Dashboard guard
+        const session = window.MahiLab.requireAuth();
+        if (session) {
+            document.getElementById('userName').textContent = session.username;
+            document.getElementById('userRole').textContent = session.role;
+            document.getElementById('userAvatar').textContent = session.username.charAt(0).toUpperCase();
+        }
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            window.MahiLab.logout();
+        });
+
+        // Nav highlight
+        document.querySelectorAll('.nav-item').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                // e.preventDefault();
+                document.querySelectorAll('.nav-item').forEach(function (n) { n.classList.remove('active'); });
+                this.classList.add('active');
+                const page = this.getAttribute('data-page');
+                document.getElementById('pageTitle').textContent = this.querySelector('span').textContent;
+                document.getElementById('pageSubtitle').textContent = 'Coming soon...';
+            });
+        });
+    </script>
+</body>
+</html>

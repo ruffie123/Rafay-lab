@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Builder — RafayLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>Home</span></a>
+            <a href="bots.html" class="nav-item active"><span>Bots</span></a>
+            <a href="cheats.html" class="nav-item"><span>Cheats</span></a>
+            <a href="apk.html" class="nav-item"><span>APK Builder</span></a>
+            <a href="web.html" class="nav-item"><span>Website</span></a>
+            <a href="ai.html" class="nav-item"><span>AI Tools</span></a>
+            <a href="terminal.html" class="nav-item"><span>Terminal</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">R</div>
+                <div class="user-details"><span class="user-name" id="userName">User</span><span class="user-role" id="userRole">owner</span></div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">X</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <header class="topbar">
+            <div class="topbar-left"><h1>Bot Builder</h1><p>Create Telegram and WhatsApp bots in seconds</p></div>
+        </header>
+
+        <section class="content-area">
+            <div class="bot-step">
+                <h2>1. Choose Platform</h2>
+                <div class="platform-toggle">
+                    <div class="platform-option selected" data-platform="telegram">
+                        <div class="platform-icon" style="--c: #3b82f6;">✈</div>
+                        <div><h3>Telegram</h3><p>Bot API — token based</p></div>
+                    </div>
+                    <div class="platform-option" data-platform="whatsapp">
+                        <div class="platform-icon" style="--c: #10b981;">💬</div>
+                        <div><h3>WhatsApp</h3><p>QR scan — WhatsApp Web</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bot-step">
+                <h2>2. Choose Bot Type</h2>
+                <div class="bot-types">
+                    <div class="bot-type" data-type="greeting">
+                        <div class="bot-type-icon" style="--c: #3b82f6;">👋</div>
+                        <h3>Greeting Bot</h3>
+                        <p>Welcome, help, about</p>
+                    </div>
+                    <div class="bot-type" data-type="order">
+                        <div class="bot-type-icon" style="--c: #10b981;">🛒</div>
+                        <h3>Order Bot</h3>
+                        <p>Menu, cart, checkout</p>
+                    </div>
+                    <div class="bot-type" data-type="alert">
+                        <div class="bot-type-icon" style="--c: #f59e0b;">🔔</div>
+                        <h3>Alert Bot</h3>
+                        <p>Broadcast, scheduled</p>
+                    </div>
+                    <div class="bot-type" data-type="faq">
+                        <div class="bot-type-icon" style="--c: #8b5cf6;">💬</div>
+                        <h3>FAQ Bot</h3>
+                        <p>Questions, answers</p>
+                    </div>
+                    <div class="bot-type" data-type="custom">
+                        <div class="bot-type-icon" style="--c: #ec4899;">✨</div>
+                        <h3>Custom Bot</h3>
+                        <p>AI-powered, any idea</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bot-step">
+                <h2>3. Bot Details</h2>
+                <div class="input-group">
+                    <label>Bot Name</label>
+                    <div class="input-wrap"><input type="text" id="botName" placeholder="e.g., MyRestaurantBot"></div>
+                </div>
+                <div class="input-group" id="tokenGroup">
+                    <label>Telegram Bot Token</label>
+                    <div class="input-wrap"><input type="password" id="botToken" placeholder="7123456789:AAF-xxx..."></div>
+                    <p class="input-hint">Get from @BotFather on Telegram</p>
+                </div>
+                <div class="input-group" id="phoneGroup" style="display:none;">
+                    <label>WhatsApp Number</label>
+                    <div class="input-wrap"><input type="text" id="botPhone" placeholder="+92-300-1234567"></div>
+                    <p class="input-hint">Will scan QR on first run</p>
+                </div>
+                <div class="input-group">
+                    <label>Welcome Message</label>
+                    <div class="input-wrap"><input type="text" id="botWelcome" placeholder="Welcome to my bot!"></div>
+                </div>
+            </div>
+
+            <div class="bot-step" id="featuresStep" style="display:none;">
+                <h2>4. Bot Features</h2>
+                <div class="input-group">
+                    <label>Features (comma separated)</label>
+                    <div class="input-wrap"><input type="text" id="botFeatures" placeholder="attendance, daily reports, payments"></div>
+                </div>
+            </div>
+
+            <div class="bot-step" id="aiStep" style="display:none;">
+                <h2>5. Describe Your Bot (AI)</h2>
+                <div class="input-group">
+                    <label>Your Requirement</label>
+                    <div class="input-wrap"><textarea id="botPrompt" class="prompt-textarea" placeholder="Describe your bot..."></textarea></div>
+                </div>
+            </div>
+
+            <div class="bot-step">
+                <button class="btn-login" id="generateBtn"><span>Generate Bot Code</span></button>
+            </div>
+
+            <div class="bot-step" id="outputStep" style="display:none;">
+                <h2>Your Bot Code</h2>
+                <pre id="codeOutput" class="code-block"></pre>
+                <div class="code-actions">
+                    <button class="btn-login" id="copyBtn"><span>Copy Code</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="js/bots.js"></script>
+</body>
+                                            </html>

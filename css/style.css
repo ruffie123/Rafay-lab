@@ -1025,3 +1025,171 @@ html, body {
 .sidebar-overlay.active {
     pointer-events: auto;
 }
+
+/* ============================================
+   Terminal Page
+   ============================================ */
+.terminal-container {
+    background: #0a0e14;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 220px);
+    min-height: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(20, 26, 36, 0.95);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.terminal-clear {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid var(--border-color);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.terminal-clear:hover {
+    background: rgba(59, 130, 246, 0.25);
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d5db;
+    cursor: text;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 6px;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.terminal-line {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-line.welcome {
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.terminal-line.prompt {
+    color: #d1d5db;
+    margin-top: 4px;
+}
+
+.terminal-line.output {
+    color: #9ca3af;
+    padding-left: 4px;
+}
+
+.terminal-line.error {
+    padding-left: 4px;
+}
+
+.term-user { color: #10b981; font-weight: 500; }
+.term-host { color: #3b82f6; font-weight: 500; }
+.term-path { color: #8b5cf6; }
+.term-symbol { color: #6b7280; padding: 0 2px; }
+.term-accent { color: #3b82f6; font-weight: 600; }
+.term-cmd { color: #10b981; }
+.term-error { color: #ef4444; }
+
+.terminal-prompt-line {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.terminal-prompt-line .term-user,
+.terminal-prompt-line .term-host,
+.terminal-prompt-line .term-path,
+.terminal-prompt-line .term-symbol {
+    font-family: var(--font-mono);
+    font-size: 14px;
+}
+
+.terminal-prompt-line .term-symbol:last-of-type {
+    margin-right: 6px;
+}
+
+.terminal-input {
+    flex: 1;
+    min-width: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #d1d5db;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    caret-color: #3b82f6;
+    padding: 0;
+}
+
+.terminal-input::selection {
+    background: rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 768px) {
+    .terminal-container {
+        height: calc(100vh - 260px);
+        min-height: 320px;
+    }
+    .terminal-body {
+        font-size: 13px;
+        padding: 12px;
+    }
+    .terminal-input {
+        font-size: 13px;
+    }
+}

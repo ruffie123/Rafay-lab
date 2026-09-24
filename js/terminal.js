@@ -1,11 +1,11 @@
 /* ============================================
-   RafayLab — Terminal
+   RafayLab — Terminal v2
+   Pyodide Python runner included
    ============================================ */
 
 (function () {
     'use strict';
 
-    // Auth check
     const session = window.MahiLab.requireAuth();
     if (session) {
         document.getElementById('userName').textContent = session.username;
@@ -22,9 +22,36 @@
 
     let history = [];
     let historyIndex = -1;
+    let pyodide = null;
+    let pyodideLoading = false;
 
-    const VERSION = '1.0.0';
+    const VERSION = '2.0.0';
     const LAB_NAME = 'RafayLab';
+
+    // ============================================
+    // Pyodide loader
+    // ============================================
+    async function loadPyodide() {
+        if (pyodide) return pyodide;
+        if (pyodideLoading) {
+            while (pyodideLoading) await new Promise(r => setTimeout(r, 100));
+            return pyodide;
+        }
+        pyodideLoading = true;
+        appendLine('output', 'Loading Python runtime... (first time ~5s)');
+        try {
+            pyodide = await window.loadPyodide({
+                indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/'
+            });
+            appendLine('output', 'Python ready. Version: ' + pyodide.runPython('import sys; sys.version.split()[0]'));
+        } catch (err) {
+            appendLine('error', 'Failed to load Python: ' + err.message);
+            pyodide = null;
+        } finally {
+            pyodideLoading = false;
+        }
+        return pyodide;
+    }
 
     // ============================================
     // Commands
@@ -44,10 +71,14 @@
                 '  history           Show command history',
                 '  clear             Clear the screen',
                 '',
-                'Coming soon:',
-                '  run [python]      Run Python (via server)',
-                '  apk [template]    Build an APK',
-                '  bot [type]        Create a bot',
+                'Python:',
+                '  run [code]        Run Python code',
+                '  py                Open Python REPL mode',
+                '',
+                'Examples:',
+                '  run print("Hello")',
+                '  run 2 + 2',
+                '  run [x*2 for x in range(5)]',
                 ''
             ];
         },
@@ -57,10 +88,8 @@
                 LAB_NAME + ' — Your coding universe, one place.',
                 '',
                 'A browser-based coding lab built by Rafay.',
-                'Tools: Terminal, Bots, Cheats, APK Builder, AI, Website.',
-                '',
-                'Built with HTML, CSS, JavaScript.',
-                'AI powered by Google Gemini.',
+                'Python runtime: Pyodide (WASM)',
+                'AI: Google Gemini',
                 ''
             ];
         },
@@ -70,13 +99,11 @@
         },
 
         date: function () {
-            const d = new Date();
-            return [d.toDateString()];
+            return [new Date().toDateString()];
         },
 
         time: function () {
-            const d = new Date();
-            return [d.toLocaleTimeString()];
+            return [new Date().toLocaleTimeString()];
         },
 
         whoami: function () {
@@ -96,46 +123,87 @@
 
         clear: function () {
             body.innerHTML = '';
-            return null;  // signal to skip prompt
+            return null;
+        },
+
+        run: async function (args, raw) {
+            const code = raw.substring(4).trim();
+            if (!code) {
+                return ['usage: run [python code]', 'example: run print("Hello")'];
+            }
+            const py = await loadPyodide();
+            if (!py) return ['Python not available.'];
+
+            appendLine('output', '>>> ' + code);
+            try {
+                // Capture stdout
+                py.runPython(`
+import sys
+from io import StringIO
+_buf = StringIO()
+_old = sys.stdout
+sys.stdout = _buf
+                `);
+                let result;
+                try {
+                    result = py.runPython(code);
+                } finally {
+                    py.runPython(`sys.stdout = _old`);
+                }
+                const captured = py.runPython(`_buf.getvalue()`);
+                const output = [];
+                if (captured && captured.trim()) {
+                    captured.split('\n').forEach(function (l) {
+                        if (l) output.push(l);
+                    });
+                }
+                if (result !== undefined && result !== null) {
+                    output.push(String(result));
+                }
+                if (output.length === 0) output.push('(no output)');
+                return output;
+            } catch (err) {
+                return ['Error: ' + err.message];
+            }
         }
     };
 
     // ============================================
-    // Run command
+    // Run
     // ============================================
-    function runCommand(rawInput) {
+    async function runCommand(rawInput) {
         const trimmed = rawInput.trim();
         if (!trimmed) return;
 
-        // Save to history
         history.push(trimmed);
         historyIndex = history.length;
 
-        // Echo the command
         appendLine('prompt', trimmed);
 
-        // Parse
         const parts = trimmed.split(/\s+/);
         const cmd = parts[0].toLowerCase();
         const args = parts.slice(1);
 
         if (commands[cmd]) {
-            const output = commands[cmd](args);
-            if (output) {
-                output.forEach(function (line) {
-                    appendLine('output', line);
-                });
+            try {
+                const output = await commands[cmd](args, trimmed);
+                if (output) {
+                    output.forEach(function (line) {
+                        appendLine('output', line);
+                    });
+                }
+            } catch (err) {
+                appendLine('error', 'Command failed: ' + err.message);
             }
         } else {
             appendLine('error', 'command not found: ' + cmd);
             appendLine('output', 'Type "help" for available commands.');
         }
-
         appendLine('spacer', '');
     }
 
     // ============================================
-    // Append line to terminal
+    // Append line
     // ============================================
     function appendLine(type, text) {
         const div = document.createElement('div');
@@ -150,7 +218,6 @@
         } else {
             div.textContent = text;
         }
-
         body.appendChild(div);
         body.scrollTop = body.scrollHeight;
     }
@@ -162,7 +229,7 @@
     }
 
     // ============================================
-    // Input handlers
+    // Input
     // ============================================
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
@@ -187,11 +254,8 @@
         }
     });
 
-    // Click anywhere on terminal — focus input
     body.addEventListener('click', function (e) {
-        if (e.target.tagName !== 'INPUT') {
-            input.focus();
-        }
+        if (e.target.tagName !== 'INPUT') input.focus();
     });
 
     clearBtn.addEventListener('click', function () {
@@ -201,7 +265,6 @@
         input.focus();
     });
 
-    // Focus input on load
     input.focus();
 
 })();

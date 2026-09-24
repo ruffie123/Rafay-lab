@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheats Lab — RafayLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>Home</span></a>
+            <a href="bots.html" class="nav-item"><span>Bots</span></a>
+            <a href="cheats.html" class="nav-item active"><span>Cheats</span></a>
+            <a href="apk.html" class="nav-item"><span>APK Builder</span></a>
+            <a href="web.html" class="nav-item"><span>Website</span></a>
+            <a href="ai.html" class="nav-item"><span>AI Tools</span></a>
+            <a href="terminal.html" class="nav-item"><span>Terminal</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">R</div>
+                <div class="user-details"><span class="user-name" id="userName">User</span><span class="user-role" id="userRole">owner</span></div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">X</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <header class="topbar">
+            <div class="topbar-left"><h1>Cheats Lab</h1><p>Game mods, scripts, file editor</p></div>
+        </header>
+
+        <section class="content-area">
+            <div class="cheat-tabs">
+                <button class="cheat-tab active" data-tab="pubg">PUBG</button>
+                <button class="cheat-tab" data-tab="ff">Free Fire</button>
+                <button class="cheat-tab" data-tab="ios">iOS</button>
+                <button class="cheat-tab" data-tab="general">General</button>
+                <button class="cheat-tab" data-tab="editor">File Editor</button>
+                <button class="cheat-tab" data-tab="credit">Credit Changer</button>
+            </div>
+
+            <div class="cheat-panel active" id="panel-pubg">
+                <div class="bot-step">
+                    <h2>PUBG Mobile</h2>
+                    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">Generate scripts, ESP configs, and anti-ban tools for PUBG Mobile.</p>
+                    <div class="bot-types">
+                        <div class="bot-type" data-cheat="pubg-skin">
+                            <div class="bot-type-icon" style="--c:#f59e0b;">🎨</div>
+                            <h3>Skin Mod</h3>
+                            <p>Collection & skins</p>
+                        </div>
+                        <div class="bot-type" data-cheat="pubg-esp">
+                            <div class="bot-type-icon" style="--c:#3b82f6;">👁️</div>
+                            <h3>ESP</h3>
+                            <p>Player vision</p>
+                        </div>
+                        <div class="bot-type" data-cheat="pubg-aimbot">
+                            <div class="bot-type-icon" style="--c:#ef4444;">🎯</div>
+                            <h3>Aimbot</h3>
+                            <p>Auto-aim</p>
+                        </div>
+                        <div class="bot-type" data-cheat="pubg-magic">
+                            <div class="bot-type-icon" style="--c:#8b5cf6;">✨</div>
+                            <h3>Magic Bullet</h3>
+                            <p>Bullet tracking</p>
+                        </div>
+                        <div class="bot-type" data-cheat="pubg-antiband">
+                            <div class="bot-type-icon" style="--c:#10b981;">🛡️</div>
+                            <h3>Anti-Ban</h3>
+                            <p>Safety tools</p>
+                        </div>
+                        <div class="bot-type" data-cheat="pubg-bypass">
+                            <div class="bot-type-icon" style="--c:#ec4899;">🔓</div>
+                            <h3>Bypass</h3>
+                            <p>File bypass</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cheat-panel" id="panel-ff">
+                <div class="bot-step">
+                    <h2>Free Fire</h2>
+                    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">Generate scripts and mods for Free Fire.</p>
+                    <div class="bot-types">
+                        <div class="bot-type" data-cheat="ff-headshot">
+                            <div class="bot-type-icon" style="--c:#ef4444;">💥</div>
+                            <h3>Headshot</h3>
+                            <p>Auto headshot</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ff-aimbot">
+                            <div class="bot-type-icon" style="--c:#f59e0b;">🎯</div>
+                            <h3>Aimbot</h3>
+                            <p>Auto-aim</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ff-esp">
+                            <div class="bot-type-icon" style="--c:#3b82f6;">👁️</div>
+                            <h3>ESP</h3>
+                            <p>Player vision</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ff-modmenu">
+                            <div class="bot-type-icon" style="--c:#8b5cf6;">🎛️</div>
+                            <h3>Mod Menu</h3>
+                            <p>Full menu</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ff-skin">
+                            <div class="bot-type-icon" style="--c:#10b981;">🎨</div>
+                            <h3>Skin Mod</h3>
+                            <p>Skins & bundles</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ff-anti">
+                            <div class="bot-type-icon" style="--c:#ec4899;">🛡️</div>
+                            <h3>Anti-Ban</h3>
+                            <p>Safety</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cheat-panel" id="panel-ios">
+                <div class="bot-step">
+                    <h2>iOS Cheats</h2>
+                    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">iOS-specific mods — requires jailbreak for full functionality.</p>
+                    <div class="bot-types">
+                        <div class="bot-type" data-cheat="ios-pubg">
+                            <div class="bot-type-icon" style="--c:#f59e0b;">📱</div>
+                            <h3>PUBG iOS</h3>
+                            <p>iOS skin mods</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ios-ff">
+                            <div class="bot-type-icon" style="--c:#ef4444;">📱</div>
+                            <h3>FF iOS</h3>
+                            <p>iOS mods</p>
+                        </div>
+                        <div class="bot-type" data-cheat="ios-general">
+                            <div class="bot-type-icon" style="--c:#8b5cf6;">🔧</div>
+                            <h3>General iOS</h3>
+                            <p>iOS tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cheat-panel" id="panel-general">
+                <div class="bot-step">
+                    <h2>General Tools</h2>
+                    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">Tools and guides for game modification.</p>
+                    <div class="bot-types">
+                        <div class="bot-type" data-cheat="gen-guardian">
+                            <div class="bot-type-icon" style="--c:#3b82f6;">🛠️</div>
+                            <h3>GameGuardian</h3>
+                            <p>Memory editor</p>
+                        </div>
+                        <div class="bot-type" data-cheat="gen-cheatengine">
+                            <div class="bot-type-icon" style="--c:#10b981;">⚙️</div>
+                            <h3>Cheat Engine</h3>
+                            <p>PC memory editor</p>
+                        </div>
+                        <div class="bot-type" data-cheat="gen-frida">
+                            <div class="bot-type-icon" style="--c:#f59e0b;">🔬</div>
+                            <h3>Frida</h3>
+                            <p>Dynamic analysis</p>
+                        </div>
+                        <div class="bot-type" data-cheat="gen-apktool">
+                            <div class="bot-type-icon" style="--c:#8b5cf6;">📦</div>
+                            <h3>APKTool</h3>
+                            <p>APK decompile</p>
+                        </div>
+                        <div class="bot-type" data-cheat="gen-mt">
+                            <div class="bot-type-icon" style="--c:#ec4899;">📝</div>
+                            <h3>MT Manager</h3>
+                            <p>Mobile APK editor</p>
+                        </div>
+                        <div class="bot-type" data-cheat="gen-lucky">
+                            <div class="bot-type-icon" style="--c:#06b6d4;">🍀</div>
+                            <h3>Lucky Patcher</h3>
+                            <p>App patcher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cheat-panel" id="panel-editor">
+                <div class="bot-step">
+                    <h2>File Editor</h2>
+                    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">Upload a file, edit it, save with your name.</p>
+                    <div class="input-group">
+                        <label>Upload File</label>
+                        <div class="input-wrap"><input type="file" id="fileInput" class="file-input"></div>
+                    </div>
+                    <div class="input-group" style="margin-top:16px;">
+                        <label>File Name</label>
+                        <div class="input-wrap"><input type="text" id="fileName" placeholder="rafay_mod.pak"></div>
+                    </div>
+                    <div class="input-group" style="margin-top:16px;">
+                        <label>Author</label>
+                        <div class="input-wrap"><input type="text" id="fileAuthor" placeholder="Rafay" value="Rafay"></div>
+                    </div>
+                    <div class="input-group" style="margin-top:16px;">
+                        <label>File Content</label>
+                        <div class="input-wrap"><textarea id="fileContent" class="prompt-textarea" placeholder="File content will appear here..." rows="10"></textarea></div>
+                    </div>
+                    <div class="code-actions" style="margin-top:16px;">
+                        <button class="btn-login" id="downloadFileBtn"><span>Download File</span></button>
+                        <button class="btn-login" id="copyFileBtn"><span>Copy Content</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cheat-panel" id="panel-credit">
+                <div class="bot-step">
+                    <h2>Credit Changer</h2>
+                    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">Edit metadata — author name, description, version.</p>
+                    <div class="input-group">
+                        <label>Original Author</label>
+                        <div class="input-wrap"><input type="text" id="creditOriginal" placeholder="Original Author"></div>
+                    </div>
+                    <div class="input-group" style="margin-top:16px;">
+                        <label>New Author</label>
+                        <div class="input-wrap"><input type="text" id="creditNew" placeholder="Rafay" value="Rafay"></div>
+                    </div>
+                    <div class="input-group" style="margin-top:16px;">
+                        <label>Description</label>
+                        <div class="input-wrap"><input type="text" id="creditDesc" placeholder="Custom mod by Rafay"></div>
+                    </div>
+                    <div class="input-group" style="margin-top:16px;">
+                        <label>Version</label>
+                        <div class="input-wrap"><input type="text" id="creditVersion" placeholder="1.0.0" value="1.0.0"></div>
+                    </div>
+                    <div class="code-actions" style="margin-top:16px;">
+                        <button class="btn-login" id="applyCreditBtn"><span>Apply Changes</span></button>
+                    </div>
+                    <pre id="creditOutput" class="code-block" style="margin-top:16px; display:none;"></pre>
+                </div>
+            </div>
+
+            <div class="bot-step" id="cheatOutput" style="display:none;">
+                <h2>Generated Code</h2>
+                <p style="color:var(--text-secondary); font-size:14px; margin-bottom:16px;">Copy this code and save it as script.py in Termux. Then run it.</p>
+                <pre id="cheatCode" class="code-block"></pre>
+                <div class="code-actions">
+                    <button class="btn-login" id="cheatCopyBtn"><span>Copy Code</span></button>
+                </div>
+            </div>
+
+            <div class="bot-step" id="guideOutput" style="display:none;">
+                <h2>📖 Step-by-Step Guide</h2>
+                <div id="guideContent" class="guide-box"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="js/cheats.js"></script>
+</body>
+                                                                                             </html>

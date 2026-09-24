@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheats Lab — RafayLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>Home</span></a>
+            <a href="bots.html" class="nav-item"><span>Bots</span></a>
+            <a href="cheats.html" class="nav-item active"><span>Cheats</span></a>
+            <a href="apk.html" class="nav-item"><span>APK Builder</span></a>
+            <a href="web.html" class="nav-item"><span>Website</span></a>
+            <a href="ai.html" class="nav-item"><span>AI Tools</span></a>
+            <a href="terminal.html" class="nav-item"><span>Terminal</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">R</div>
+                <div class="user-details"><span class="user-name" id="userName">User</span><span class="user-role" id="userRole">owner</span></div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">X</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <header class="topbar">
+            <div class="topbar-left"><h1>Cheats Lab</h1><p>Choose a section</p></div>
+        </header>
+
+        <section class="content-area">
+            <div class="bot-step">
+                <h2>Game Sections</h2>
+                <div class="bot-types">
+                    <a href="cheats-pubg.html" class="bot-type" style="text-decoration:none;">
+                        <div class="bot-type-icon" style="--c:#f59e0b;">🎯</div>
+                        <h3>PUBG Mobile</h3>
+                        <p>ESP, Aimbot, Skins, Anti-ban</p>
+                    </a>
+                    <a href="cheats-ff.html" class="bot-type" style="text-decoration:none;">
+                        <div class="bot-type-icon" style="--c:#ef4444;">🔥</div>
+                        <h3>Free Fire</h3>
+                        <p>Headshot, Mod Menu, ESP</p>
+                    </a>
+                    <a href="cheats-ios.html" class="bot-type" style="text-decoration:none;">
+                        <div class="bot-type-icon" style="--c:#8b5cf6;">📱</div>
+                        <h3>iOS</h3>
+                        <p>iOS-specific mods</p>
+                    </a>
+                    <a href="cheats-general.html" class="bot-type" style="text-decoration:none;">
+                        <div class="bot-type-icon" style="--c:#3b82f6;">🛠️</div>
+                        <h3>General Tools</h3>
+                        <p>GameGuardian, Frida, APKTool</p>
+                    </a>
+                    <a href="cheats-editor.html" class="bot-type" style="text-decoration:none;">
+                        <div class="bot-type-icon" style="--c:#10b981;">📝</div>
+                        <h3>File Editor</h3>
+                        <p>Upload, edit, save files</p>
+                    </a>
+                    <a href="cheats-credit.html" class="bot-type" style="text-decoration:none;">
+                        <div class="bot-type-icon" style="--c:#ec4899;">✨</div>
+                        <h3>Credit Changer</h3>
+                        <p>Metadata editor</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+  </html>

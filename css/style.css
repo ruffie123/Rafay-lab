@@ -1320,3 +1320,27 @@ html, body {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
 }
+
+/* ============================================
+   Fixes — File input + Cheat output
+   ============================================ */
+.file-input {
+    color-scheme: dark;
+}
+.file-input::-webkit-file-upload-button,
+.file-input::file-selector-button {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-right: 12px;
+    font-family: var(--font-main);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#guideOutput {
+    margin-top: 16px;
+   }

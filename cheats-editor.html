@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Editor — RafayLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>Home</span></a>
+            <a href="bots.html" class="nav-item"><span>Bots</span></a>
+            <a href="cheats.html" class="nav-item active"><span>Cheats</span></a>
+            <a href="ai.html" class="nav-item"><span>AI Tools</span></a>
+            <a href="terminal.html" class="nav-item"><span>Terminal</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <a href="cheats.html" class="back-btn">← Back</a>
+            <h1>File Editor</h1>
+            <p>Upload, edit, save files with your name</p>
+        </div>
+
+        <div class="bot-step">
+            <h2>1. Upload File</h2>
+            <div class="input-group">
+                <label>Select a file</label>
+                <div class="input-wrap">
+                    <input type="file" id="fileInput" class="file-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="bot-step">
+            <h2>2. Metadata</h2>
+            <div class="input-group">
+                <label>File Name</label>
+                <div class="input-wrap"><input type="text" id="fileName" placeholder="rafay_mod.pak"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>Author</label>
+                <div class="input-wrap"><input type="text" id="fileAuthor" placeholder="Rafay" value="Rafay"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>Description</label>
+                <div class="input-wrap"><input type="text" id="fileDesc" placeholder="Custom mod by Rafay"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>Version</label>
+                <div class="input-wrap"><input type="text" id="fileVersion" placeholder="1.0.0" value="1.0.0"></div>
+            </div>
+        </div>
+
+        <div class="bot-step">
+            <h2>3. Content</h2>
+            <div class="input-group">
+                <label>File Content</label>
+                <div class="input-wrap">
+                    <textarea id="fileContent" class="prompt-textarea" placeholder="File content will appear here..." rows="12"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="bot-step">
+            <div class="code-actions">
+                <button class="btn-login" id="downloadFileBtn"><span>Download File</span></button>
+                <button class="btn-login" id="copyFileBtn"><span>Copy Content</span></button>
+                <button class="btn-login" id="clearBtn"><span>Clear</span></button>
+            </div>
+        </div>
+
+        <div class="bot-step" id="metadataOutput" style="display:none;">
+            <h2>Generated Metadata</h2>
+            <pre class="code-block" id="metadataCode"></pre>
+            <button class="btn-login" id="copyMetaBtn"><span>Copy Metadata</span></button>
+        </div>
+    </main>
+
+    <script src="js/cheats-editor.js"></script>
+</body>
+  </html>

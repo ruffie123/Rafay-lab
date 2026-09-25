@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Changer — RafayLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>Home</span></a>
+            <a href="bots.html" class="nav-item"><span>Bots</span></a>
+            <a href="cheats.html" class="nav-item active"><span>Cheats</span></a>
+            <a href="ai.html" class="nav-item"><span>AI Tools</span></a>
+            <a href="terminal.html" class="nav-item"><span>Terminal</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <a href="cheats.html" class="back-btn">← Back</a>
+            <h1>Credit Changer</h1>
+            <p>Edit metadata — author, description, version</p>
+        </div>
+
+        <div class="bot-step">
+            <h2>File Metadata</h2>
+            <div class="input-group">
+                <label>Original Author</label>
+                <div class="input-wrap"><input type="text" id="creditOriginal" placeholder="Original Author"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>New Author</label>
+                <div class="input-wrap"><input type="text" id="creditNew" placeholder="Rafay" value="Rafay"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>File Name</label>
+                <div class="input-wrap"><input type="text" id="creditFile" placeholder="mod.pak"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>Description</label>
+                <div class="input-wrap"><input type="text" id="creditDesc" placeholder="Custom mod by Rafay" value="Custom mod by Rafay"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>Version</label>
+                <div class="input-wrap"><input type="text" id="creditVersion" placeholder="1.0.0" value="1.0.0"></div>
+            </div>
+            <div class="input-group" style="margin-top:16px;">
+                <label>License</label>
+                <div class="input-wrap"><input type="text" id="creditLicense" placeholder="MIT" value="MIT"></div>
+            </div>
+        </div>
+
+        <div class="bot-step">
+            <div class="code-actions">
+                <button class="btn-login" id="applyBtn"><span>Generate Metadata</span></button>
+                <button class="btn-login" id="copyMetaBtn"><span>Copy</span></button>
+                <button class="btn-login" id="downloadMetaBtn"><span>Download</span></button>
+            </div>
+        </div>
+
+        <div class="bot-step" id="creditOutput" style="display:none;">
+            <h2>Generated Metadata</h2>
+            <pre class="code-block" id="creditCode"></pre>
+            <div class="guide-box" id="creditGuide"></div>
+        </div>
+    </main>
+
+    <script src="js/cheats-credit.js"></script>
+</body>
+              </html>

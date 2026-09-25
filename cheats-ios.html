@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Cheats — RafayLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="bg-grid"></div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mark small"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="10" stroke="currentColor" stroke-width="2"/><path d="M10 26L14 12L20 22L26 12L30 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="brand">Rafay<span>Lab</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>Home</span></a>
+            <a href="bots.html" class="nav-item"><span>Bots</span></a>
+            <a href="cheats.html" class="nav-item active"><span>Cheats</span></a>
+            <a href="ai.html" class="nav-item"><span>AI Tools</span></a>
+            <a href="terminal.html" class="nav-item"><span>Terminal</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <a href="cheats.html" class="back-btn">← Back</a>
+            <h1>iOS Cheats</h1>
+            <p>iOS-specific mods — requires jailbreak</p>
+        </div>
+
+        <div class="cheat-grid">
+            <div class="cheat-card" data-cheat="pubg-ios">
+                <div class="cheat-icon" style="--c:#f59e0b;">📱</div>
+                <h3>PUBG iOS</h3>
+                <p>iOS skin mods</p>
+            </div>
+            <div class="cheat-card" data-cheat="ff-ios">
+                <div class="cheat-icon" style="--c:#ef4444;">📱</div>
+                <h3>FF iOS</h3>
+                <p>iOS mods</p>
+            </div>
+            <div class="cheat-card" data-cheat="jailbreak">
+                <div class="cheat-icon" style="--c:#3b82f6;">🔓</div>
+                <h3>Jailbreak</h3>
+                <p>Checkra1n, unc0ver</p>
+            </div>
+            <div class="cheat-card" data-cheat="filza">
+                <div class="cheat-icon" style="--c:#8b5cf6;">📁</div>
+                <h3>Filza</h3>
+                <p>iOS file manager</p>
+            </div>
+            <div class="cheat-card" data-cheat="tweaks">
+                <div class="cheat-icon" style="--c:#10b981;">⚙️</div>
+                <h3>Essential Tweaks</h3>
+                <p>AppSync, etc</p>
+            </div>
+            <div class="cheat-card" data-cheat="bypass">
+                <div class="cheat-icon" style="--c:#ec4899;">🛡️</div>
+                <h3>Jailbreak Bypass</h3>
+                <p>Hide JB detection</p>
+            </div>
+        </div>
+
+        <div class="output-section" id="outputSection" style="display:none;">
+            <h2 id="outputTitle">Output</h2>
+            <pre class="code-block" id="codeOutput"></pre>
+            <button class="btn-login" id="copyBtn"><span>Copy Code</span></button>
+            <div class="guide-box" id="guideBox"></div>
+        </div>
+    </main>
+
+    <script src="js/cheats-ios.js"></script>
+</body>
+  </html>

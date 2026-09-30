@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "rafay-books",
     "public": "rafay-books",
     "ignore": [
       "firebase.json",
